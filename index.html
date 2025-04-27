@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia dos Namorados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Tela de Splash -->
+    <div id="splash-screen" class="splash-screen">
+        <h1 class="splash-text">Feliz Dia dos Namorados 💖</h1>
+    </div>
+
+    <!-- Página Principal -->
+    <main id="main-content" class="hidden">
+        <!-- Seção do Desenho -->
+        <section class="drawing-section">
+            <div class="drawing-container">
+                <!-- Espaço para a imagem do casal -->
+                <img src="couple.jpg.png" alt="Nós" class="couple-image">
+            </div>
+        </section>
+
+        <!-- Seção do Vinil -->
+        <section class="vinyl-section">
+            <div class="vinyl-container">
+                <img src="vinyl.png" alt="Vinil" class="vinyl-image">
+                <audio id="special-song" src="special-song.mp3"></audio>
+            </div>
+        </section>
+
+        <!-- Seção da Playlist -->
+        <section class="playlist-section">
+            <h2>Nossa Playlist</h2>
+            <div class="playlist-container">
+                <!-- Aqui será inserido o embed do Spotify -->
+                <iframe src="https://open.spotify.com/embed/playlist/SEU_ID_DA_PLAYLIST" 
+                        width="100%" 
+                        height="380" 
+                        frameborder="0" 
+                        allowtransparency="true" 
+                        allow="encrypted-media">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Seção do Coração -->
+        <section class="heart-section">
+            <div class="heart-container">
+                <div class="heart" id="heart-button">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carta -->
+        <div class="overlay" id="overlay"></div>
+        <div class="letter" id="letter">
+            <p class="letter-content">
+                <!-- Sua mensagem romântica aqui -->
+                Querido(a),<br><br>
+                Neste Dia dos Namorados, quero expressar todo o meu amor por você...
+            </p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
