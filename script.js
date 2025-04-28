@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heartButton = document.getElementById('heart-button');
     const letter = document.getElementById('letter');
     const overlay = document.getElementById('overlay');
+    const playButton = document.getElementById('play-button');
 
     // Transição da tela de splash para a página principal
     setTimeout(() => {
@@ -19,13 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Controle do vinil e música
     let isPlaying = false;
-    vinylImage.addEventListener('click', () => {
+    playButton.addEventListener('click', () => {
         if (isPlaying) {
             specialSong.pause();
-            vinylImage.style.animationPlayState = 'paused';
+            vinylImage.classList.remove('playing');
+            playButton.innerHTML = '<i class="fas fa-play"></i> Tocar Música';
         } else {
-            specialSong.play();
-            vinylImage.style.animationPlayState = 'running';
+            specialSong.play().catch(error => {
+                console.error('Erro ao tocar música:', error);
+                alert('Não foi possível tocar a música. Verifique se o arquivo de áudio está correto.');
+            });
+            vinylImage.classList.add('playing');
+            playButton.innerHTML = '<i class="fas fa-pause"></i> Pausar Música';
         }
         isPlaying = !isPlaying;
     });
@@ -56,18 +62,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         }
     });
-
-    // Gerar QR Code
-    const generateQRCode = () => {
-        const qrContainer = document.createElement('div');
-        qrContainer.className = 'qr-code';
-        qrContainer.innerHTML = `
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(window.location.href)}" 
-                 alt="QR Code do site">
-        `;
-        document.body.appendChild(qrContainer);
-    };
-
-    // Gerar QR Code após 5 segundos
-    setTimeout(generateQRCode, 5000);
 }); 

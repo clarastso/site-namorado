@@ -1,11 +1,16 @@
 :root {
-    --rosa-claro: #FF69B4;
-    --sage-green: #A8BDB0;
+    --pink-lemonade: #FFB6C1;
+    --sage-green: #9CAF88;
     --texto-escuro: #333333;
-    --rosa-escuro: #FF1493;
-    --verde-escuro: #32CD32;
-    --fonte-titulo: 'Dancing Script', cursive;
-    --fonte-texto: 'Playfair Display', serif;
+    --pink-escuro: #FF69B4;
+    --verde-escuro: #7D9F8B;
+    --fonte-titulo: 'Poppins', sans-serif;
+    --fonte-texto: 'Montserrat', sans-serif;
+    --papel-vintage: #F5E6D3;
+    --rosa-suave: #FFC0CB;
+    --verde-suave: #B8E0D2;
+    --rosa-escuro-hover: #FF1493;
+    --verde-escuro-hover: #2E8B57;
 }
 
 * {
@@ -16,7 +21,7 @@
 
 body {
     font-family: var(--fonte-texto);
-    background-color: var(--rosa-claro);
+    background-color: var(--papel-vintage);
     min-height: 100vh;
     color: var(--texto-escuro);
     position: relative;
@@ -30,9 +35,10 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--sage-green);
+    background-color: var(--verde-suave);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
     z-index: -1;
+    opacity: 0.4;
 }
 
 /* Tela de Splash */
@@ -45,7 +51,7 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--rosa-claro);
+    background-color: var(--pink-lemonade);
     z-index: 1000;
     animation: fadeIn 2s ease-in;
 }
@@ -57,8 +63,7 @@ body::before {
     opacity: 0;
     animation: fadeIn 2s ease-in forwards;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    font-weight: bold;
+    font-weight: 600;
 }
 
 /* Página Principal */
@@ -68,87 +73,105 @@ body::before {
 
 main {
     padding: 40px 20px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 /* Seção do Desenho */
 .drawing-section {
-    margin: 40px 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
     text-align: center;
 }
 
 .couple-image {
     max-width: 100%;
     height: auto;
+    max-height: 300px;
+    object-fit: contain;
     border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    transform: scale(1);
-    transition: transform 0.3s ease;
-}
-
-.couple-image:hover {
-    transform: scale(1.05);
 }
 
 /* Seção do Vinil */
 .vinyl-section {
-    margin: 60px 0;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .vinyl-container {
     position: relative;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
 }
 
 .vinyl-image {
     width: 100%;
     height: 100%;
-    animation: rotate 20s linear infinite;
     cursor: pointer;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
-/* Seção da Playlist */
-.playlist-section {
-    margin: 60px 0;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 1;
+.vinyl-image.playing {
+    animation: rotate 20s linear infinite;
 }
 
-.playlist-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: var(--rosa-escuro);
-    font-size: 3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+.play-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--rosa-suave);
+    color: var(--texto-escuro);
+    border: none;
+    border-radius: 25px;
     font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-weight: 600;
+}
+
+.play-button:hover {
+    background-color: var(--verde-suave);
+    transform: scale(1.05);
+}
+
+.play-button i {
+    margin-right: 8px;
 }
 
 /* Seção do Coração */
 .heart-section {
-    margin: 60px 0;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
     text-align: center;
 }
 
 .heart {
     font-size: 4rem;
-    color: var(--rosa-escuro);
+    color: var(--pink-escuro);
     cursor: pointer;
     transition: all 0.3s ease;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 .heart:hover {
     transform: scale(1.3);
     color: var(--verde-escuro);
+    animation: pulseHover 0.8s ease-in-out infinite;
 }
 
 /* Carta */
@@ -159,13 +182,14 @@ main {
     transform: translate(-50%, -50%) translateY(100vh);
     width: 90%;
     max-width: 500px;
-    background: white;
+    background: var(--papel-vintage);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     transition: transform 0.5s ease-in-out;
     opacity: 0;
     z-index: 1000;
+    border: 1px solid #D4C4B5;
 }
 
 .letter.open {
@@ -180,6 +204,8 @@ main {
     text-align: center;
     color: var(--texto-escuro);
     font-style: italic;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
 }
 
 /* Overlay para fechar a carta */
@@ -219,15 +245,43 @@ main {
     }
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseHover {
+    0% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1.3);
+    }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
-    .splash-text {
-        font-size: 3.5rem;
+    main {
+        gap: 30px;
+    }
+
+    .couple-image {
+        max-height: 250px;
     }
 
     .vinyl-container {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
 
     .heart {
@@ -237,15 +291,15 @@ main {
     .letter-content {
         font-size: 1.4rem;
     }
-
-    .playlist-section h2 {
-        font-size: 2.5rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .splash-text {
-        font-size: 3rem;
+    main {
+        gap: 20px;
+    }
+
+    .couple-image {
+        max-height: 200px;
     }
 
     .vinyl-container {
@@ -257,33 +311,126 @@ main {
         font-size: 3rem;
     }
 
-    .playlist-section h2 {
-        font-size: 2.2rem;
-    }
-
     .letter-content {
         font-size: 1.2rem;
     }
 }
 
-/* QR Code */
-.qr-code {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1000;
+.romantic-quote {
+    font-family: var(--fonte-titulo);
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    color: var(--texto-escuro);
+    position: relative;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+}
+
+.romantic-quote::before,
+.romantic-quote::after {
+    content: '"';
+    font-size: 3rem;
+    color: var(--rosa-suave);
+    position: absolute;
+    opacity: 0.5;
+}
+
+.romantic-quote::before {
+    left: -10px;
+    top: -20px;
+}
+
+.romantic-quote::after {
+    right: -10px;
+    bottom: -40px;
+}
+
+.romantic-quote.pink {
+    color: var(--pink-escuro);
+    font-weight: 700;
+}
+
+.romantic-quote.green {
+    color: var(--verde-escuro);
+    font-weight: 700;
+}
+
+.sticker {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    z-index: 1;
     transition: transform 0.3s ease;
 }
 
-.qr-code:hover {
-    transform: scale(1.1);
+.sticker:hover {
+    transform: rotate(10deg) scale(1.1);
 }
 
-.qr-code img {
-    width: 150px;
-    height: 150px;
+.sticker-1 {
+    top: 5%;
+    left: 5%;
+    transform: rotate(-15deg);
+}
+
+.sticker-2 {
+    top: 15%;
+    right: 5%;
+    transform: rotate(20deg);
+}
+
+.sticker-3 {
+    bottom: 25%;
+    left: 5%;
+    transform: rotate(-10deg);
+}
+
+.sticker-4 {
+    bottom: 15%;
+    right: 5%;
+    transform: rotate(15deg);
+}
+
+.sticker-5 {
+    top: 45%;
+    left: 2%;
+    transform: rotate(-5deg);
+}
+
+.sticker-6 {
+    top: 55%;
+    right: 2%;
+    transform: rotate(25deg);
+}
+
+.sticker-7 {
+    top: 35%;
+    left: 2%;
+    transform: rotate(-8deg);
+}
+
+.sticker-8 {
+    top: 40%;
+    right: 2%;
+    transform: rotate(12deg);
+}
+
+/* Responsividade para os stickers */
+@media (max-width: 768px) {
+    .sticker {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticker {
+        width: 60px;
+        height: 60px;
+    }
 }

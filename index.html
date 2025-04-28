@@ -6,48 +6,50 @@
     <title>Feliz Dia dos Namorados</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Tela de Splash -->
     <div id="splash-screen" class="splash-screen">
-        <h1 class="splash-text">Feliz Dia dos Namorados 💖</h1>
+        <h1 class="splash-text">Feliz Dia dos Namorados!</h1>
     </div>
 
     <!-- Página Principal -->
     <main id="main-content" class="hidden">
+        <!-- Stickers Decorativos -->
+        <img src="img/sticker1.png" alt="Sticker 1" class="sticker sticker-1">
+        <img src="img/sticker2.png" alt="Sticker 2" class="sticker sticker-2">
+        <img src="img/sticker3.png" alt="Sticker 3" class="sticker sticker-3">
+        <img src="img/sticker4.png" alt="Sticker 4" class="sticker sticker-4">
+        <img src="img/sticker5.png" alt="Sticker 5" class="sticker sticker-5">
+        <img src="img/sticker6.png" alt="Sticker 6" class="sticker sticker-6">
+        <img src="img/sticker7.png" alt="Sticker 7" class="sticker sticker-7">
+        <img src="img/sticker8.png" alt="Sticker 8" class="sticker sticker-8">
+
         <!-- Seção do Desenho -->
         <section class="drawing-section">
             <div class="drawing-container">
                 <!-- Espaço para a imagem do casal -->
-                <img src="couple.jpg.png" alt="Nós" class="couple-image">
+                <img src="img/couple.png" alt="Nós" class="couple-image">
             </div>
         </section>
+
+        <p class="romantic-quote pink">Cada momento ao seu lado é como uma página de um conto de fadas que nunca termina...</p>
 
         <!-- Seção do Vinil -->
         <section class="vinyl-section">
             <div class="vinyl-container">
-                <img src="vinyl.png" alt="Vinil" class="vinyl-image">
-                <audio id="special-song" src="special-song.mp3"></audio>
+                <img src="img/vynil.png" alt="Vinil" class="vinyl-image">
+                <audio id="special-song" src="audio/special-song.wav"></audio>
             </div>
+            <button class="play-button" id="play-button">
+                <i class="fas fa-play"></i> Tocar Música
+            </button>
         </section>
 
-        <!-- Seção da Playlist -->
-        <section class="playlist-section">
-            <h2>Nossa Playlist</h2>
-            <div class="playlist-container">
-                <!-- Aqui será inserido o embed do Spotify -->
-                <iframe src="https://open.spotify.com/embed/playlist/SEU_ID_DA_PLAYLIST" 
-                        width="100%" 
-                        height="380" 
-                        frameborder="0" 
-                        allowtransparency="true" 
-                        allow="encrypted-media">
-                </iframe>
-            </div>
-        </section>
+        <p class="romantic-quote green">Nossa história é como uma música que nunca canso de ouvir...</p>
 
         <!-- Seção do Coração -->
         <section class="heart-section">
@@ -57,6 +59,8 @@
                 </div>
             </div>
         </section>
+
+        <p class="romantic-quote pink">Meu coração bate mais forte quando penso em você...</p>
 
         <!-- Carta -->
         <div class="overlay" id="overlay"></div>
